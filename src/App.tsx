@@ -1,9 +1,24 @@
-const App = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-3xl font-bold underline">Event Sheduler</h1>
-    </div>
-  );
-};
+import { Routes, Route, Link } from "react-router-dom";
 
-export default App;
+function Home() {
+  return <h1>Home</h1>;
+}
+
+function About() {
+  return <h1>About</h1>;
+}
+
+export default function App() {
+  return (
+    <>
+      <nav>
+        <Link to="/">Home</Link> | <Link to="/about">About</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </>
+  );
+}
